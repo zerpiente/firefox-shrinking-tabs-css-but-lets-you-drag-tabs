@@ -1,0 +1,60 @@
+/*
+  Firefox - Chrome-like Shrinking Tabs
+  This style modifies the Firefox UI to provide a Chrome-like tab experience.
+
+  Features:
+  - Prevents the tab bar from ever scrolling.
+  - Allows tabs to shrink down to 1px.
+  - Centers the favicon on very small tabs for better visibility.
+  - Fixes the common "blank space" bug when closing tabs.
+
+  Tested and working on Firefox 140.0.4 (macOS).
+*/
+
+/* 1. ULTIMATE SCROLL & TRANSFORM PREVENTION */
+/* Prevents scrolling by disabling overflow and transform-based sliding on the entire tab bar structure. */
+#TabsToolbar,
+#TabsToolbar * {
+    overflow: hidden !important;
+    transform: none !important;
+    min-width: 0 !important;
+}
+
+/* 2. Hide any remaining visual scroll indicators */
+/* Although functionality is disabled, this ensures the buttons are visually gone. */
+.tabbrowser-arrowscrollbox > .scrollbutton-up,
+.tabbrowser-arrowscrollbox > .scrollbutton-down,
+.tabbrowser-scrollbox-overflow-indicator {
+    display: none !important;
+}
+
+/* 3. Force tabs to shrink & DEFINE THE TAB AS A CONTAINER */
+/* Allows tabs to shrink below the default minimum and defines each tab as a queryable container. */
+.tabbrowser-tab[fadein]:not([pinned]) {
+    min-width: 1px !important;
+    container-type: inline-size;
+    container-name: tab-container;
+}
+
+/* 4. Conditionally style very small tabs */
+/* Uses a Container Query to apply styles only when a tab's width is less than 55px. */
+@container tab-container (max-width: 55px) {
+    .tab-content {
+        padding-inline: 0px !important;
+        justify-content: center !important; /* Centers the content (the icon) */
+    }
+    .tab-icon-image {
+        margin-inline: 0px !important; /* Resets margin to allow for perfect centering */
+    }
+}
+
+/* 5. Keep the proven "graceful close" to prevent the blank space bug */
+/* A small transition gives Firefox's layout engine time to adjust, preventing graphical glitches. */
+.tabbrowser-tab[closing] {
+    min-width: 0px !important;
+    max-width: 0px !important;
+    padding-inline: 0px !important;
+    margin-inline: 0px !important;
+    opacity: 0 !important;
+    transition: all 150ms ease !important;
+}
