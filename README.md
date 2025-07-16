@@ -2,9 +2,7 @@
 
 > A `userChrome.css` style to make Firefox tabs shrink down to a single, centered icon instead of scrolling.
 
-*(Recommendation: Record a short GIF of the feature in action and replace the link below to show users how it works.)*
-
-![A GIF demonstrating the tabs shrinking and centering the favicon](https://user-images.githubusercontent.com/example/shrinking-tabs-demo.gif)
+![A GIF demonstrating the tabs shrinking and centering the favicon](https://github.com/bpetrynski/firefox-shrinking-tabs-css/blob/main/firefox-shrinking-tabs-css-demo.gif?raw=true)
 
 ---
 
