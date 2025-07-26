@@ -16,4 +16,4 @@ it was this one!:
 
 it does have the side effect of allowing firefox to activate the scroll arrows, but that's only with like 400 tabs open on my 1080p monitor so I don't mind it that much.
 
-
+if this small thing I did at like 2 AM while migrating to FF is somehow useful to anyone please direct your thanks at bpetrynski for actually doing the work in the first place
