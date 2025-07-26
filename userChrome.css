@@ -16,7 +16,6 @@
 #TabsToolbar,
 #TabsToolbar * {
     overflow: hidden !important;
-    transform: none !important;
     min-width: 0 !important;
 }
 
